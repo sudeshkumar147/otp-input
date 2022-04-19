@@ -1,0 +1,33 @@
+{
+  "name": "otp-input-s",
+  "version": "0.1.0",
+  "description": "This component will take opt and it will do autofill",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sudeshkumar147/otp-input.git"
+  },
+  "keywords": [
+    "opt-input"
+  ],
+  "author": "Sudesh Saksham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sudeshkumar147/otp-input/issues"
+  },
+  "homepage": "https://github.com/sudeshkumar147/otp-input#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-react": "^7.16.7",
+    "react": "^18.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11"
+  }
+}
