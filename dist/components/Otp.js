@@ -5,16 +5,46 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+require("core-js/modules/web.dom-collections.iterator.js");
+
+require("core-js/modules/es.number.to-fixed.js");
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _mystyleModule = _interopRequireDefault(require("./style/mystyle.module.css"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
 const Otp = props => {
+  const [inpts, setinpts] = (0, _react.useState)('');
+  (0, _react.useEffect)(() => {
+    numInputs(props.numberOfInputs);
+  }, [props]);
+
+  const numInputs = number => {
+    let inpts = '';
+
+    for (let i = 0; i < number; i++) {
+      inpts += "<input type=".concat(props.type || 'password', " class=").concat(props.inptClass || _mystyleModule.default.otpinput, " placeholder='0' style=\"width: ").concat((85 / number).toFixed(2), "%;\" />");
+    }
+
+    setinpts(inpts);
+  };
+
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "badge ".concat(!props.value ? ' none' : '')
-  }, /*#__PURE__*/_react.default.createElement("h4", {
-    className: "heavy"
-  }, props.value || 0));
+    className: props.mainclass || _mystyleModule.default.main
+  }, /*#__PURE__*/_react.default.createElement("label", {
+    className: props.labelClass || _mystyleModule.default.label
+  }, props.label || 'OTP: '), /*#__PURE__*/_react.default.createElement("div", {
+    className: _mystyleModule.default.otpMain,
+    dangerouslySetInnerHTML: {
+      __html: inpts
+    }
+  }));
 };
 
 var _default = Otp;
